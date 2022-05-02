@@ -1,3 +1,7 @@
+const container = document.querySelector('.container');
+const clearButton = document.querySelector('.clear');
+
+
 function createGrid() {
     let gridArea = gridNumber * gridNumber;
     for (let i = 1, i <= gridArea; i++) {
