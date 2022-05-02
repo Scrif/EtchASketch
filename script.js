@@ -4,7 +4,7 @@ const clearButton = document.querySelector('.clear');
 // On Page Load - default size
 createGrid(10);
 
-function createGrid() {
+function createGrid (gridNumber) {
     let gridArea = gridNumber * gridNumber;
     for (let i = 1, i <= gridArea; i++) {
         let gridItem = document.createElement('div');
