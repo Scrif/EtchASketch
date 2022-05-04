@@ -69,3 +69,17 @@ button:focus, input:focus {
     flex-wrap: wrap;
 }
 
+.buttons > * {
+    flex: 1 1 auto;
+}
+
+#input-color {
+    border: none;
+    height: 25px;
+    width: 25px;
+    padding: 0;
+}
+
+input[type="color" i] {
+    background-color: black;
+}
