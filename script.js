@@ -1,19 +1,22 @@
-const defaultColor = '#ffffff'
 const grid = document.querySelector('.grid')
-
-let backgroundColor = defaultColor
-let gridSize = document.querySelector('.grid-size')
+let gridSetting = document.querySelector('.grid-size-setting')
+let gridSize = document.querySelector('grid-size')
+const resetBtn = document.querySelector('.reset')
 let blockSize = 16
 
+const defaultColor = '#ffffff'
+let backgroundColor = defaultColor
+
+createGrid(blockSize);
 
 // Function Declarations below:
 
 // This function creates the grid of blocks by creating a grid of divs
 // by iterating through a for loop until the gridSize conditions are met.
-function createGrid(gridSize) {
-    for (let i = 0; i < gridSize; i++) {
-        for (let j = 0; j < gridSize; j++) {
-            grid.appendChild(createBlock(grid.clientWidth / gridSize));
+function createGrid(gridSetting) {
+    for (let i = 0; i < gridSetting; i++) {
+        for (let j = 0; j < gridSetting; j++) {
+            grid.appendChild(createBlock(grid.clientWidth / gridSetting));
         }
     }
 }
