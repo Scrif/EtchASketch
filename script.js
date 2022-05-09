@@ -7,10 +7,15 @@ let
 
 
 // Function Declarations below:
-function createGrid() {
+function createGrid(gridDim) {
 
 }
 
-function setBlockSize(grid) {
-
+// This function sets the block size and creates the individual divs
+function createBlock(size) {
+    const block = document.createElement('div');
+    div.classList.add('block');
+    div.style.height = '${size}px';
+    div.style.width = '${size}px';
+    return block;
 }
