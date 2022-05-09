@@ -11,8 +11,6 @@ function createGrid() {
 
 }
 
-createGrid(blockSize) {
+function setBlockSize(grid) {
 
 }
-
-setBlockSize(grid)
