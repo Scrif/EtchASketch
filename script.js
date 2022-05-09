@@ -1,6 +1,6 @@
 const defaultColor = '#ffffff'
 const defaultSize = 16
-const grid = document.getElementById('grid')
+const grid = document.querySelector('.grid')
 
 let backgroundColor = defaultColor
 let gridDim = defaultSize
