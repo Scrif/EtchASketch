@@ -8,11 +8,12 @@ let blockSize = 16
 
 // Function Declarations below:
 
-// This function creates the grid of blocks
+// This function creates the grid of blocks by creating a grid of divs
+// by iterating through a for loop until the gridSize conditions are met.
 function createGrid(gridSize) {
     for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
-            grid.appendChild(createDiv(grid.clientWidth / gridSize));
+            grid.appendChild(createBlock(grid.clientWidth / gridSize));
         }
     }
 }
