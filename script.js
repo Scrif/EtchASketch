@@ -39,19 +39,23 @@ function reset() {
 
 //Event Listeners:
 
+// Changes the color of an individual block when the user mouses over it
 grid.addEventListener('mouseover', function(e) {
-    if (e.target.matches('box')) {
+    if (e.target.matches('block')) {
         e.target.classList.add('active');
     }
 });
 
-gridSize.addEventListener('input', function (e) {
+// Updates the grid size label when the user adjusts the slider
+gridSize.addEventListener('grid-size', function (e) {
     blockSize = e.target.value;
     gridSetting.textContent = `${blockSize}x${blockSize}`;
 });
 
+// Applies the new grid size setting from the slider
 applyGridSize.addEventListener('click', function () {
     reset();
 })
 
+// Clears the grid
 resetBtn.addEventListener('click', reset);
