@@ -13,11 +13,11 @@ createGrid(blockSize);
 
 // This function sets the block size and creates the individual divs
 function createBlock(size) {
-    const block = document.createElement('div');
+    const div = document.createElement('div');
     div.classList.add('block');
     div.style.height = '${size}px';
     div.style.width = '${size}px';
-    return block;
+    return div;
 }
 
 // This function creates the grid of blocks by creating a grid of divs
