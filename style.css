@@ -103,9 +103,12 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .grid {
-    display: grid;
+    display: flex;
     width: 500px;
     height: 500px;
+    position: relative;
+    flex-flow: row wrap;
+    justify-content: space-around;
     background-color: var(--secondary-light);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
 }
