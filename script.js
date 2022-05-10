@@ -1,7 +1,8 @@
-const grid = document.querySelector('.grid')
-let sizeValue = document.querySelector('.grid-size')
-let gridSize = document.querySelector('input')
-const resetBtn = document.querySelector('.reset')
+const grid = document.querySelector('.grid');
+let sizeValue = document.querySelector('.grid-size');
+let gridSize = document.querySelector('input');
+const resetBtn = document.querySelector('.reset');
+const setGridSize = document.querySelector('.apply');
 let blockSize = 16
 
 const defaultColor = '#ffffff'
@@ -15,8 +16,8 @@ createGrid(blockSize);
 function createBlock(size) {
     const div = document.createElement('div');
     div.classList.add('block');
-    div.style.height = '${size}px';
-    div.style.width = '${size}px';
+    div.style.height = `${size}px`;
+    div.style.width = `${size}px`;
     return div;
 }
 
@@ -42,7 +43,7 @@ function reset() {
 
 // Changes the color of an individual block when the user mouses over it
 grid.addEventListener('mouseover', function(e) {
-    if (e.target.matches('block')) {
+    if (e.target.matches('.block')) {
         e.target.classList.add('active');
     }
 });
