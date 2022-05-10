@@ -11,16 +11,6 @@ createGrid(blockSize);
 
 // Function Declarations below:
 
-// This function creates the grid of blocks by creating a grid of divs
-// by iterating through a for loop until the gridSize conditions are met.
-function createGrid(sizeValue) {
-    for (let i = 0; i < sizeValue; i++) {
-        for (let j = 0; j < sizeValue; j++) {
-            grid.appendChild(createBlock(grid.clientWidth / sizeValue));
-        }
-    }
-}
-
 // This function sets the block size and creates the individual divs
 function createBlock(size) {
     const block = document.createElement('div');
@@ -30,6 +20,17 @@ function createBlock(size) {
     return block;
 }
 
+// This function creates the grid of blocks by creating a grid of divs
+// by iterating through a for loop until the gridSize conditions are met.
+function createGrid(gridSize) {
+    for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+            grid.appendChild(createBlock(grid.clientWidth / gridSize));
+        }
+    }
+}
+
+// Resets the grid
 function reset() {
     while (grid.firstChild) {
         grid.removeChild(grid.lastChild);
