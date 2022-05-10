@@ -36,3 +36,22 @@ function reset() {
     }
     createGrid(blockSize);
 }
+
+//Event Listeners:
+
+grid.addEventListener('mouseover', function(e) {
+    if (e.target.matches('box')) {
+        e.target.classList.add('active');
+    }
+});
+
+gridSize.addEventListener('input', function (e) {
+    blockSize = e.target.value;
+    gridSetting.textContent = `${blockSize}x${blockSize}`;
+});
+
+applyGridSize.addEventListener('click', function () {
+    reset();
+})
+
+resetBtn.addEventListener('click', reset);
