@@ -15,14 +15,14 @@
         <div class="controls-container">
             <div class="button-container">
                 <h3></h3>
-                <div class="grid-size-setting">16x16</div>
-                <input type="range" min="2" max="100" value="16"/>
+                <input id="colorPicker" type="color" value="#333333" />
+                <div id="grid-size" class="grid-size">16x16</div>
+                <input type="range" min="1" max="64" value="16"/>
                 <button class="apply">Apply</button>
                 <button class="reset">Reset</button>
             </div>
         </div>
-        <div class="grid">
-        </div>
+        <div id="grid" class="grid"></div>
     </main>
     <script src="script.js"></script>
 </body>

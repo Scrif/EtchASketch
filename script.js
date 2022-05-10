@@ -1,6 +1,6 @@
 const grid = document.querySelector('.grid')
-let sizeValue = document.querySelector('.grid-size-setting')
-let gridSize = document.querySelector('grid-size')
+let sizeValue = document.querySelector('.grid-size')
+let gridSize = document.querySelector('input')
 const resetBtn = document.querySelector('.reset')
 let blockSize = 16
 

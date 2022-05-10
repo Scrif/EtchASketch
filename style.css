@@ -116,3 +116,7 @@ input[type='range']::-webkit-slider-thumb {
     font-weight: 500;
     font-size: 1.5rem;
 }
+
+.block.active {
+    background-color: var(--secondary-light);
+}
