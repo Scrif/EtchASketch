@@ -1,5 +1,5 @@
 const grid = document.querySelector('.grid')
-let gridSetting = document.querySelector('.grid-size-setting')
+let sizeValue = document.querySelector('.grid-size-setting')
 let gridSize = document.querySelector('grid-size')
 const resetBtn = document.querySelector('.reset')
 let blockSize = 16
@@ -13,10 +13,10 @@ createGrid(blockSize);
 
 // This function creates the grid of blocks by creating a grid of divs
 // by iterating through a for loop until the gridSize conditions are met.
-function createGrid(gridSetting) {
-    for (let i = 0; i < gridSetting; i++) {
-        for (let j = 0; j < gridSetting; j++) {
-            grid.appendChild(createBlock(grid.clientWidth / gridSetting));
+function createGrid(sizeValue) {
+    for (let i = 0; i < sizeValue; i++) {
+        for (let j = 0; j < sizeValue; j++) {
+            grid.appendChild(createBlock(grid.clientWidth / sizeValue));
         }
     }
 }
