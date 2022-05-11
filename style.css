@@ -120,10 +120,6 @@ input[type='range']::-webkit-slider-thumb {
     font-size: 1.5rem;
 }
 
-.block {
-
-}
-
 .block.active {
     background-color: var(--primary-dark);
 }

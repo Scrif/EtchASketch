@@ -1,12 +1,14 @@
 const grid = document.querySelector('.grid');
-let sizeValue = document.querySelector('.grid-size');
+let sizeValue = document.querySelector('size-value');
 let gridSize = document.querySelector('input');
 const resetBtn = document.querySelector('.reset');
 const setGridSize = document.querySelector('.apply');
 const defaultColor = '#ffffff'
+const slider = document.getElementById('slider')
 let currentColor = '#333333'
 let blockSize = 16
 let backgroundColor = defaultColor
+
 
 createGrid(blockSize);
 
@@ -33,17 +35,35 @@ function createGrid(gridSize) {
 
 // Resets the grid
 function reset() {
-    while (grid.firstChild) {
-        grid.removeChild(grid.lastChild);
-    }
-    createGrid(blockSize);
+    clearGrid()
+    setupGrid(currentSize)
 }
 
 function setColor(newColor) {
     currentColor = newColor
 }
 
+function setCurrentSize(newSize) {
+    currentSize = newSize
+}
+
+function updateSizeValue(value) {
+    sizeValue.textContent = `${blockSize}x${blockSize}`;
+}
+
+function clearGrid() {
+    grid.innerHTML = ''
+}
+
+function changeSize(value) {
+    setCurrentSize(value)
+    updateCurrentSize(value)
+    reset()
+}
+
 colorPicker.onchange = (e) => setColor(e.target.value)
+slider.onmousemove = (e) => updateSizeValue(e.target.value)
+slider.onchange = (e) => changeSize(e.target.value)
 
 //Event Listeners:
 
@@ -55,13 +75,13 @@ grid.addEventListener('mouseover', function(e) {
 });
 
 // Updates the grid size label when the user adjusts the slider
-gridSize.addEventListener('grid-size', function (e) {
+gridSize.addEventListener('input', function (e) {
     blockSize = e.target.value;
-    gridSetting.textContent = `${blockSize}x${blockSize}`;
+    sizeValue.textContent = `${blockSize}x${blockSize}`;
 });
 
 // Applies the new grid size setting from the slider
-applyGridSize.addEventListener('click', function () {
+setGridSize.addEventListener('click', function () {
     reset();
 })
 
