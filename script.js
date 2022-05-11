@@ -1,35 +1,46 @@
 const grid = document.querySelector('.grid');
-let sizeValue = document.querySelector('size-value');
-let gridSize = document.querySelector('input');
 const resetBtn = document.querySelector('.reset');
 const setGridSize = document.querySelector('.apply');
-const defaultColor = '#ffffff'
+const defaultColor = '#222222'
+const defaultSize = 16
 const slider = document.getElementById('slider')
+
 let currentColor = '#333333'
 let blockSize = 16
 let backgroundColor = defaultColor
-
+let sizeValue = document.querySelector('size-value');
+let gridSize = document.querySelector('input');
 
 createGrid(blockSize);
 
 // Function Declarations below:
 
-// This function sets the block size and creates the individual divs
-function createBlock(size) {
-    const div = document.createElement('div');
-    div.classList.add('block');
-    div.style.height = `${size}px`;
-    div.style.width = `${size}px`;
-    return div;
-}
-
 // This function creates the grid of blocks by creating a grid of divs
 // by iterating through a for loop until the gridSize conditions are met.
 function createGrid(gridSize) {
-    for (let i = 0; i < gridSize; i++) {
-        for (let j = 0; j < gridSize; j++) {
-            grid.appendChild(createBlock(grid.clientWidth / gridSize));
-        }
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
+
+    for (let i=0; i < size * size; i++) {
+        const gridElement = document.createElement('div')
+        gridElement.classList.add("grid-element")
+        gridElement.addEventListener('mouseover', changeColor)
+        gridElement.addEventListener('mousedown', changeColor)
+        grid.appendChild(gridElement)
+    }
+}
+
+function changeColor(e) {
+    if (e.type === 'mouseover' && !mouseDown) return
+    if (currentMode === 'rainbow') {
+        const randomR = Math.floor(Math.random() * 256)
+        const randomG = Math.floor(Math.random() * 256)
+        const randomB = Math.floor(Math.random() * 256)
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    } else if (currentMode === 'color') {
+        e.target.style.backgroundColor = currentColor
+    } else if (currentMode === 'eraser') {
+        e.target.style.backgroundColor = '#fefefe'
     }
 }
 
@@ -39,22 +50,27 @@ function reset() {
     setupGrid(currentSize)
 }
 
+// Updates the pen color to the new selection
 function setColor(newColor) {
     currentColor = newColor
 }
 
+// Updates the grid size to the new selection
 function setCurrentSize(newSize) {
     currentSize = newSize
 }
 
+// Updates the grid dimension label to the new selection
 function updateSizeValue(value) {
     sizeValue.textContent = `${blockSize}x${blockSize}`;
 }
 
+// Resets the grid painting
 function clearGrid() {
     grid.innerHTML = ''
 }
 
+// Changes the size setting
 function changeSize(value) {
     setCurrentSize(value)
     updateCurrentSize(value)
