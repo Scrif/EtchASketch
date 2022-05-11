@@ -4,7 +4,7 @@ let gridSize = document.querySelector('input');
 const resetBtn = document.querySelector('.reset');
 const setGridSize = document.querySelector('.apply');
 const defaultColor = '#ffffff'
-let currentColor = defaultColor
+let currentColor = '#333333'
 let blockSize = 16
 let backgroundColor = defaultColor
 
