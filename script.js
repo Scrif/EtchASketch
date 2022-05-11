@@ -13,6 +13,10 @@ let gridSize = document.querySelector('input');
 
 createGrid(blockSize);
 
+colorPicker.onchange = (e) => setColor(e.target.value)
+slider.onmousemove = (e) => updateSizeValue(e.target.value)
+slider.onchange = (e) => changeSize(e.target.value)
+
 // Function Declarations below:
 
 // This function creates the grid of blocks by creating a grid of divs
@@ -40,14 +44,13 @@ function changeColor(e) {
     } else if (currentMode === 'color') {
         e.target.style.backgroundColor = currentColor
     } else if (currentMode === 'eraser') {
-        e.target.style.backgroundColor = '#fefefe'
+        e.target.style.backgroundColor = '#ffffff'
     }
 }
 
 // Resets the grid
 function reset() {
-    clearGrid()
-    setupGrid(currentSize)
+    grid.innerHTML = ''
 }
 
 // Updates the pen color to the new selection
@@ -65,11 +68,6 @@ function updateSizeValue(value) {
     sizeValue.textContent = `${blockSize}x${blockSize}`;
 }
 
-// Resets the grid painting
-function clearGrid() {
-    grid.innerHTML = ''
-}
-
 // Changes the size setting
 function changeSize(value) {
     setCurrentSize(value)
@@ -77,9 +75,28 @@ function changeSize(value) {
     reset()
 }
 
-colorPicker.onchange = (e) => setColor(e.target.value)
-slider.onmousemove = (e) => updateSizeValue(e.target.value)
-slider.onchange = (e) => changeSize(e.target.value)
+function activateButton(newMode) {
+    if (currentMode === 'rainbow') {
+        rainbowBtn.classList.remove('active')
+    } else if (currentMode === 'color') {
+        colorBtn.classList.remove('active')
+    } else if (currentMode === 'eraser') {
+        eraserBtn.classList.remove('active')
+    }
+  
+    if (newMode === 'rainbow') {
+        rainbowBtn.classList.add('active')
+    } else if (newMode === 'color') {
+        colorBtn.classList.add('active')
+    } else if (newMode === 'eraser') {
+        eraserBtn.classList.add('active')
+    }
+  }
+
+  window.onload = () => {
+      setupGrid(defaultSize)
+      activateButton(defaultMode)
+  }
 
 //Event Listeners:
 
