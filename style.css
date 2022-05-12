@@ -28,7 +28,7 @@ margin-bottom: 100px;
 }
 
 h1 {
-line-height: 1.2;
+line-height: 1;
 }
 
 button,
@@ -152,72 +152,4 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 .grid-element {
 user-select: none;
-}
-
-/* FOOTER */
-
-.footer {
-position: absolute;
-bottom: 0;
-left: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-width: 100%;
-padding: 10px;
-font-size: 20px;
-}
-
-.fa-github {
-color: var(--primary-dark);
-font-size: 24px;
-transition: transform 0.3s ease-in-out;
-}
-
-.fa-github:hover {
-transform: rotate(360deg) scale(1.2);
-}
-
-/* MEDIA QUERIES */
-
-@media (max-width: 1200px) {
-.main {
-    justify-content: center;
-}
-}
-
-@media (max-width: 850px) {
-.main {
-    gap: 50px;
-}
-
-.settings {
-    width: 150px;
-    gap: 16px;
-}
-
-.size-value {
-    margin-bottom: -4px;
-}
-
-.grid {
-    width: 400px;
-    height: 400px;
-}
-}
-
-@media (max-width: 650px) {
-.title {
-    font-size: 50px;
-}
-
-.main {
-    flex-direction: column-reverse;
-}
-
-.grid {
-    width: 300px;
-    height: 300px;
-}
 }
